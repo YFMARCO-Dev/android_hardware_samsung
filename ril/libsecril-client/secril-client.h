@@ -152,16 +152,6 @@ typedef enum _AudioPath {
 } AudioPath;
 
 /**
- * ExtraVolume
- */
-#ifdef RIL_CALL_AUDIO_PATH_EXTRAVOLUME
-typedef enum _ExtraVolume {
-    ORIGINAL_PATH,
-    EXTRA_VOLUME_PATH
-} ExtraVolume;
-#endif
-
-/**
  * Clock adjustment parameters.
  */
 typedef enum _SoundClockCondition {
@@ -246,11 +236,7 @@ int SetCallVolume(HRilClient client, SoundType type, int vol_level);
 /**
  * Set external sound device path for noise reduction.
  */
-#ifdef RIL_CALL_AUDIO_PATH_EXTRAVOLUME
-int SetCallAudioPath(HRilClient client, AudioPath path, ExtraVolume mode);
-#else
 int SetCallAudioPath(HRilClient client, AudioPath path);
-#endif
 
 /**
  * Set modem clock to master or slave.
